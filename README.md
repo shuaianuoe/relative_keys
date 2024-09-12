@@ -1,6 +1,6 @@
-# relative_keys
+# Relative_keys
 
-This is a preliminary **relative keys** code repository for reference.
+This is the code repository for paper "Relative Keys: Putting Feature Explanation into Context".
 
 It mainly includes model training (1), testing the explanation and monitoring explanation of SRK (2.1), OSRK (2.2), and SSRK (2.3) algorithms. In addition, it also includes testing explanation performance under dynamic models (2.4) and serves as an indicator for monitoring ML performance (2.5).
 
