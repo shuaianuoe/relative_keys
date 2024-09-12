@@ -67,7 +67,7 @@ if len(data_df) % step_size != 0:
 # selected_indices = np.concatenate(selected_indexes)
 
 np.random.seed(42) 
-selected_indices = np.random.choice(data_df.index[:int(len(data_df)*0.92)], size=sample_num, replace=False)
+selected_indices = np.random.choice(data_df.index[:int(len(data_df)*0.99)], size=sample_num, replace=False)
 
 #%% Start calculating the result of SRK based on window  
 with open('data_process/'+datasetsname+'_xgb.pkl', 'rb') as f:

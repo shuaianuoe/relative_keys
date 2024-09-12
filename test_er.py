@@ -2,13 +2,13 @@
 
 import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
-import CSC.set_cover as sc
+import srk
 import pickle
 import os
 import time
 import pandas as pd
 import csv
-from CSC.utils import  compute_con_acc, compute_faithfulness_er, compute_faithfulness_er_fnum, alg_config_parse
+from utils import  compute_con_acc, compute_faithfulness_er, compute_faithfulness_er_fnum, alg_config_parse
 import warnings
 from certa.models.utils import get_model
 
@@ -39,7 +39,7 @@ def predict_fn(x, **kwargs):
 alg_dict = alg_config_parse('config.yaml')            
 dataset = alg_dict['datasetsname']
 sample_num = alg_dict['sample_num']
-test_df = pd.read_csv('../CSC/data_process/'+dataset+'_test.csv')
+test_df = pd.read_csv('data_process/'+dataset+'_test.csv')
 sample_num = min(sample_num, test_df.shape[0])
 
 datadir = 'datasets/'+dataset
@@ -82,7 +82,7 @@ for instance_id in range(test_df.shape[0]):
         subsets[col] = set(diff_indices)
 
     universe = set(test_df.index[test_df[Y] != instance_value[Y]].tolist())
-    cover_sets = sc.greedy_set_cover(universe, subsets, 0)
+    cover_sets = srk.greedy_set_cover(universe, subsets, 0)
         
     res_dict[instance_id] = cover_sets
     exp_s[instance_id] = len(cover_sets)  
