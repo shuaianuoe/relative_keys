@@ -2,8 +2,7 @@
 
 This is the code repository for paper "Relative Keys: Putting Feature Explanation into Context".
 
-It mainly includes model training (1), testing the explanation and monitoring explanation of SRK (2.1), OSRK (2.2), and SSRK (2.3) algorithms. In addition, it also includes testing explanation performance under dynamic models (2.4) and serves as an indicator for monitoring ML performance (2.5).
-
+It primarily includes data preprocessing and model training (1), testing the explanations and monitoring explanations of SRK (2.1), OSRK (2.2), and SSRK (2.3) algorithms. Additionally, it involves testing explanation performance under dynamic models (2.4) and acts as an indicator for monitoring ML performance (2.5). It also encompasses a specific task of testing entity linking (3). Lastly, it includes a simple interface script for receiving instances from Redis (4). In summary, the core code includes (1), 2.(1) to 2.(3).
 
 Firstly, the following packages are necessary:
 ```
@@ -14,7 +13,9 @@ xgboost 1.7.1
 redis 4.6.0
 ```
 
-We should configure a config file. The default file `config.yaml`is the revidivism dataset as an example. More datasets can refer to `data_process` folder.
+To test entity linking, the 'certa' package must also be installed to train the Ditto model. Please refer to https://github.com/tteofili/certa
+
+We should configure a config file (the meanings of specific parameters have been clearly defined). The default file `config.yaml`uses the revidivism dataset as an example. More datasets please refer to `data_process` folder.
 
 ### 1 Train xgboost and get other necessary information.
 
@@ -22,7 +23,7 @@ We should configure a config file. The default file `config.yaml`is the revidivi
 python preprocess.py
 ```
 
-With the trained model and the inference set, we can test the algorithm. Make sure the corresponding folder exists.
+With the trained model and the inference set, we can test all the algorithms. Make sure the corresponding folder exists.
 
 ### 2.1 test srk
 
@@ -82,8 +83,6 @@ To generate and evaluate the keys for entity matching task, run
 ```
 python test_er.py
 ```
-
-We use the `certa` package to train the Ditto model. Make sure first install the `certa` package. 
 
 ### 4 redis interface
 We have also developed a very simple interface `redis_inter.py` to redis to receive data from redis. 
