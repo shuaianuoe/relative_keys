@@ -17,6 +17,8 @@ To test entity linking, the 'certa' package must also be installed to train the 
 
 We should configure a config file (the meanings of specific parameters have been clearly defined). The default file `config.yaml`uses the revidivism dataset as an example. More datasets please refer to `data_process` folder.
 
+All the scripts should run on Windows 10 as well as on Ubuntu 14.04 and later systems.
+
 ### 1 Train xgboost and get other necessary information.
 
 ```
