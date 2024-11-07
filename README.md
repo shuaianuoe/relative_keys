@@ -2,18 +2,12 @@
 
 This is the code repository for paper "Relative Keys: Putting Feature Explanation into Context".
 
-It primarily includes data preprocessing and model training (1), testing the explanations and monitoring explanations of SRK (2.1), OSRK (2.2), and SSRK (2.3) algorithms. Additionally, it involves testing explanation performance under dynamic models (2.4) and acts as an indicator for monitoring ML performance (2.5). It also encompasses a specific task of testing entity linking (3). Lastly, it includes a simple interface script for receiving instances from Redis (4). In summary, the core code includes (1), 2.(1) to 2.(3).
+It primarily includes data preprocessing and model training (1), testing the explanations and monitoring explanations of SRK (2.1), OSRK (2.2), and SSRK (2.3) algorithms. Additionally, it involves testing explanation performance under dynamic models (2.4) and acts as an indicator for monitoring ML performance (2.5). It also encompasses a specific task of testing entity linking (3). In summary, the core code includes (1), 2.(1) to 2.(3).
 
-Firstly, the following packages are necessary:
+Firstly, the necessary packages are specified in `requirements.txt`.  Run below code:
 ```
-numpy 1.20.3
-pandas 2.0.1
-scikit-learn 0.24.2
-xgboost 1.7.1
-redis 4.6.0
+pip install -r requirements.txt
 ```
-
-To test entity linking, the 'certa' package must also be installed to train the Ditto model. Please refer to https://github.com/tteofili/certa
 
 We should configure a config file (the meanings of specific parameters have been clearly defined). The default file `config.yaml`uses the revidivism dataset as an example. More datasets please refer to `data_process` folder.
 
@@ -80,12 +74,22 @@ python main_indicator.py
 
 ### 3 test entity matching
 
-To generate and evaluate the keys for entity matching task, run
+If you want to test the entity linking task, you need to replace the datasetsname in `config.yaml` with an entity linking dataset.
 
+Using DBLP-ACM as an example:
+
+1. Change the datasetsname in config.yaml to "DBLP-ACM".
+
+2. To train the entity linking model and generate the instance to be explained, run the command:
+```
+python train_certa.py
+```
+
+3. To generate and evaluate the keys for entity matching task, run
 ```
 python test_er.py
 ```
 
-### 4 redis interface
-We have also developed a very simple interface `redis_inter.py` to redis to receive data from redis. 
-Make sure the redis server is turned on.
+NOTE: (1) Step2 can be time-consuming. For DBLP-ACM, it takes approximately 30 minutes. (2) If you encounter the 'KeyError: 'certa'' error, simply restart the console.
+
+
