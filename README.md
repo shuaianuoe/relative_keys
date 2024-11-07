@@ -80,12 +80,12 @@ Using DBLP-ACM as an example:
 
 1. Change the datasetsname in config.yaml to "DBLP-ACM".
 
-2. To train the entity linking model and generate the instance to be explained, run the command:
+2. To train the entity linking model and generate the instance to be explained, run the command in the `certamain` folder:
 ```
 python train_certa.py
 ```
 
-3. To generate and evaluate the keys for entity matching task, run
+3. To generate and evaluate the keys for entity matching task, run the command in the `certamain` folder:
 ```
 python test_er.py
 ```
