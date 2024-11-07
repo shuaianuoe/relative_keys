@@ -3,7 +3,6 @@ import numpy as np
 import time
 import pandas as pd
 import osrk as osc
-import csv
 import os
 from sklearn.metrics import accuracy_score
 from xgboost import XGBClassifier

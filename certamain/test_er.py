@@ -1,27 +1,26 @@
 # -*- coding: utf-8 -*-
 
+
 import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 import srk
 import pickle
 import os
 import time
-import pandas as pd
-import csv
 from utils import  compute_con_acc, compute_faithfulness_er, compute_faithfulness_er_fnum, alg_config_parse
 import warnings
-from certa.models.utils import get_model
 
 warnings.simplefilter(action='ignore', category=FutureWarning)
-
 warnings.filterwarnings('ignore', category=UserWarning, module='spacy')
 
 def save_model(model, modeldir):
-    os.makedirs(os.path.dirname(modeldir), exist_ok=True)  
+
+    os.makedirs(os.path.dirname(modeldir), exist_ok=True)
     with open(modeldir, 'wb') as f:
         pickle.dump(model, f)
 
 def load_model(modeldir):
+
     if os.path.exists(modeldir):
         print("Model file is found!")
         with open(modeldir, 'rb') as f:
@@ -35,30 +34,24 @@ def predict_fn(x, **kwargs):
 
 
 #%%       
+alg_dict = alg_config_parse('../config.yaml')            
 
-alg_dict = alg_config_parse('config.yaml')            
 dataset = alg_dict['datasetsname']
 sample_num = alg_dict['sample_num']
-test_df = pd.read_csv('data_process/'+dataset+'_test.csv')
+
+test_df = pd.read_csv('../data_process/'+dataset+'_test.csv')
 sample_num = min(sample_num, test_df.shape[0])
 
-datadir = 'datasets/'+dataset
-modeldir = 'model/ditto/' + dataset + '/model.pkl'  
-
-model = load_model(modeldir)
-if model is None:
-    model = get_model('ditto', modeldir, datadir, dataset)
-    save_model(model, modeldir)
-    
+modeldir = '../certamain/model/ditto/' + dataset + '/model.pkl'  
 model = load_model(modeldir)
 
 test_df = test_df.drop(['label','ltable_id','rtable_id'], axis=1)
 columns_name_list = test_df.columns.values.tolist() 
 X = columns_name_list[0:-1]
 Y = columns_name_list[-1]
+k = 5
 
 
-#%%       
 res_dict = {}
 s_time = np.zeros(sample_num, dtype='float')
 exp_s = np.zeros(sample_num, dtype='int')
@@ -98,6 +91,7 @@ for instance_id in range(test_df.shape[0]):
     with open('exp/'+dataset+'_srk-expsize.pkl', 'wb') as f:
        pickle.dump(exp_s, f)
 
+    
         
 print("mean_time:", round(np.mean(s_time), 3)) 
 
