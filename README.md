@@ -4,13 +4,9 @@ This is the code repository for paper "Relative Keys: Putting Feature Explanatio
 
 It primarily includes data preprocessing and model training (1), testing the explanations and monitoring explanations of SRK (2.1), OSRK (2.2), and SSRK (2.3) algorithms. Additionally, it involves testing explanation performance under dynamic models (2.4) and acts as an indicator for monitoring ML performance (2.5). It also encompasses a specific task of testing entity linking (3). Lastly, it includes a simple interface script for receiving instances from Redis (4). In summary, the core code includes (1), 2.(1) to 2.(3).
 
-Firstly, the following packages are necessary:
+Firstly, the necessary packages are specified in `requirements.txt`.  Run below code:
 ```
-numpy 1.20.3
-pandas 2.0.1
-scikit-learn 0.24.2
-xgboost 1.7.1
-redis 4.6.0
+pip install -r requirements.txt
 ```
 
 We should configure a config file (the meanings of specific parameters have been clearly defined). The default file `config.yaml`uses the revidivism dataset as an example. More datasets please refer to `data_process` folder.
