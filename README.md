@@ -2,7 +2,7 @@
 
 This is the code repository for paper "Relative Keys: Putting Feature Explanation into Context".
 
-It primarily includes data preprocessing and model training (1), testing the explanations and monitoring explanations of SRK (2.1), OSRK (2.2), and SSRK (2.3) algorithms. Additionally, it involves testing explanation performance under dynamic models (2.4) and acts as an indicator for monitoring ML performance (2.5). It also encompasses a specific task of testing entity linking (3). Lastly, it includes a simple interface script for receiving instances from Redis (4). In summary, the core code includes (1), 2.(1) to 2.(3).
+It primarily includes data preprocessing and model training (1), testing the explanations and monitoring explanations of SRK (2.1), OSRK (2.2), and SSRK (2.3) algorithms. Additionally, it involves testing explanation performance under dynamic models (2.4) and acts as an indicator for monitoring ML performance (2.5). It also encompasses a specific task of testing entity linking (3). In summary, the core code includes (1), 2.(1) to 2.(3).
 
 Firstly, the necessary packages are specified in `requirements.txt`.  Run below code:
 ```
