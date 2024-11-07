@@ -83,8 +83,8 @@ If you want to test the entity linking task, you need to replace the datasetsnam
 Using DBLP-ACM as an example:
 
 1. Change the datasetsname in config.yaml to "DBLP-ACM".
-2. 
-3. To train the entity linking model and generate the instance to be explained, run the command:
+
+2. To train the entity linking model and generate the instance to be explained, run the command:
 ```
 python train_certa.py
 ```
@@ -93,5 +93,7 @@ python train_certa.py
 ```
 python test_er.py
 ```
+
+"NOTE": (1) Step2 can be time-consuming. For DBLP-ACM, it takes approximately 30 minutes. (2) If you encounter the 'KeyError: 'certa'' error, simply restart the console.
 
 
