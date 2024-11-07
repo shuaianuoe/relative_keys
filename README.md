@@ -94,6 +94,6 @@ python train_certa.py
 python test_er.py
 ```
 
-"NOTE": (1) Step2 can be time-consuming. For DBLP-ACM, it takes approximately 30 minutes. (2) If you encounter the 'KeyError: 'certa'' error, simply restart the console.
+NOTE: (1) Step2 can be time-consuming. For DBLP-ACM, it takes approximately 30 minutes. (2) If you encounter the 'KeyError: 'certa'' error, simply restart the console.
 
 
