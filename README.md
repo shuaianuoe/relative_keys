@@ -66,7 +66,7 @@ The average results will be printed on the command console.
 
 As an application of relative key monitoring, OSRK can be used to monitor the performance (accuracy) of blackbox ML during model serving. 
 
-We must set noise_flag=True in the `config.yaml`.
+We must set **noise_flag=True** in the `config.yaml`.
 
 ```
 python main_indicator.py
