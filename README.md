@@ -11,6 +11,18 @@ Firstly, the necessary packages are specified in `requirements.txt`.  Run below 
 pip install -r requirements.txt
 ```
 
+如果速度太慢，不妨使用特殊的镜像
+```
+pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/
+```
+
+Note: 如果你不打算测试实体链接任务(3)，我们建议你安装更简洁的 `requirements_simple.txt`。它可以确保你跑完核心任务 (1), 2.(1) to 2.(3).
+```
+pip install -r requirements_simple.txt
+```
+
+___
+
 We should configure a config file (the meanings of specific parameters have been clearly defined). The default file `config.yaml`uses the revidivism dataset as an example. More datasets please refer to `data_process` folder.
 
 All the scripts should run on Windows 10 as well as on Ubuntu 14.04 and later systems.
@@ -80,7 +92,7 @@ If you want to test the entity linking task, you need to replace the datasetsnam
 
 Using DBLP-ACM as an example:
 
-1. Change the datasetsname in config.yaml to "DBLP-ACM".
+1. Change the datasetsname in 'config.yaml' to "DBLP-ACM".
 
 2. To train the entity linking model and generate the instance to be explained, run the command in the `certamain` folder:
 ```
