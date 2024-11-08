@@ -3,21 +3,22 @@ import os
 import pandas as pd
 
 from certa.utils import merge_sources
-from certa.models.DeepER import DeepERModel
+#from certa.models.DeepER import DeepERModel
 from certa.models.bert import EMTERModel
 # from certa.models.dm import DMERModel
-from certa.models.ermodel import ERModel
+# from certa.models.ermodel import ERModel
 
 
 def from_type(type: str):
-    model = ERModel()
-    if "dm" == type:
-        a=-1
-        # model = DMERModel()
-    elif "deeper" == type:
-        model = DeepERModel()
-    elif "ditto" == type:
-        model = EMTERModel()
+    model = EMTERModel()
+    # model = ERModel()
+    # if "dm" == type:
+    #     a=-1
+    #     # model = DMERModel()
+    # elif "deeper" == type:
+    #     model = DeepERModel()
+    # elif "ditto" == type:
+    #     model = EMTERModel()
     return model
 
 

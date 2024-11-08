@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 
+import sys
+sys.path.append("..")
+
 
 import os
 import pickle
@@ -10,8 +13,13 @@ from certa.explain import CertaExplainer
 from certa.utils import merge_sources
 from certa.local_explain import get_original_prediction
 import numpy as np
-import time
+
 from utils import alg_config_parse
+
+# Encountered a missing en_core_web_lg error in the command line, so downloading en_core_web_lg here.
+import spacy.cli
+spacy.cli.download("en_core_web_lg")
+
 
 warnings.simplefilter(action='ignore', category=FutureWarning)
 warnings.filterwarnings('ignore', category=UserWarning, module='spacy')

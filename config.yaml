@@ -1,4 +1,4 @@
-datasetsname: recidivism
+datasetsname: recidivism # to test er task, just change to DBLP-ACM
 epsilon: 0  # 1-alpha by default. when 0.98-alpha, set it to 0.02
 model_num: 5 # model numbers
 multiclass: false # Control whether it is a multiclass dataset
