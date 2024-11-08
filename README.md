@@ -19,7 +19,8 @@ activate rk
 
 ___
 
-Firstly, the necessary packages are specified in `requirements.txt`.  Run below code:
+After activating the virtual environment, we first need to install the necessary packages, which are specified in `requirements.txt`. Run below code:
+
 ```
 pip install -r requirements.txt
 ```
@@ -29,14 +30,14 @@ If the speed is too slow, consider specifying a dedicated mirror.
 pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/
 ```
 
-Note: If you do not intend to test the entity linking task (3), we recommend installing the simpler requirements_simple.txt. It ensures that you can complete the core tasks (1), 2.(1) to 2.(3).
+Note: If you do not intend to test the entity linking task (3), we recommend installing the simpler `requirements_simple.txt`. It ensures that you can complete the core tasks (1), 2.(1) to 2.(3).
 ```
 pip install -r requirements_simple.txt
 ```
 
 ___
 
-We should configure a config file (the meanings of specific parameters have been clearly defined). The default file `config.yaml`uses the revidivism dataset as an example. More datasets please refer to `data_process` folder.
+Now we can start running the code. Firstly, we should configure a config file (the meanings of specific parameters have been clearly defined). The default file `config.yaml`uses the revidivism dataset as an example. More datasets please refer to `data_process` folder.
 
 All the scripts should run on Windows 10 as well as on Ubuntu 14.04 and later systems.
 
