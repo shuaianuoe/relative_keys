@@ -1,8 +1,23 @@
-# Relative_keys
+![image](https://github.com/user-attachments/assets/758a5d57-87fb-4a0b-bd4a-8865914b0868)# Relative_keys
 
 This is the code repository for paper "Relative Keys: Putting Feature Explanation into Context".
 
 It primarily includes data preprocessing and model training (1), testing the explanations and monitoring explanations of SRK (2.1), OSRK (2.2), and SSRK (2.3) algorithms. Additionally, it involves testing explanation performance under dynamic models (2.4) and acts as an indicator for monitoring ML performance (2.5). It also encompasses a specific task of testing entity linking (3). In summary, the core code includes (1), 2.(1) to 2.(3).
+___
+
+To ensure that you can successfully run the code and avoid any potential package incompatibility issues, we strongly recommend using a fresh virtual environment.
+
+Here is an example of creating a new environment named `rk` with Python version 3.9.7:
+
+```
+conda create --name rk python=3.9.7
+```
+
+Then, activate the newly created environment `rk`.
+
+```
+activate rk
+```
 
 ___
 
@@ -11,12 +26,12 @@ Firstly, the necessary packages are specified in `requirements.txt`.  Run below 
 pip install -r requirements.txt
 ```
 
-如果速度太慢，不妨使用特殊的镜像
+If the speed is too slow, consider specifying a dedicated mirror.
 ```
 pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/
 ```
 
-Note: 如果你不打算测试实体链接任务(3)，我们建议你安装更简洁的 `requirements_simple.txt`。它可以确保你跑完核心任务 (1), 2.(1) to 2.(3).
+Note: If you do not intend to test the entity linking task (3), we recommend installing the simpler requirements_simple.txt. It ensures that you can complete the core tasks (1), 2.(1) to 2.(3).
 ```
 pip install -r requirements_simple.txt
 ```
@@ -88,22 +103,23 @@ python main_indicator.py
 
 ### 3 test entity matching
 
-If you want to test the entity linking task, you need to replace the datasetsname in `config.yaml` with an entity linking dataset.
-
-Using DBLP-ACM as an example:
+If you want to test the entity linking task, you need to replace the datasetsname in `config.yaml` with an entity linking dataset. Using DBLP-ACM as an example:
 
 1. Change the datasetsname in `config.yaml` to 'DBLP-ACM'.
 
-2. To train the entity linking model and generate the instance to be explained, run the command in the `certamain` folder:
+2. Enter the subdirectory `certamain`. 
+
+3. To train the entity linking model and generate the instance to be explained, run the command in the `certamain` folder:
 ```
-python certamain/train_certa.py
+python train_certa.py
 ```
 
-3. To generate and evaluate the keys for entity matching task, run the command in the `certamain` folder:
+4. To generate and evaluate the keys for entity matching task, run the command in the `certamain` folder:
 ```
-python certamain/test_er.py
+python test_er.py
 ```
 
-NOTE: (1) Step2 can be time-consuming. For DBLP-ACM, it takes approximately 30 minutes. (2) If you encounter the 'KeyError: 'certa'' error, simply restart the console.
+NOTE: (1) Step3 can be time-consuming. For DBLP-ACM, it takes approximately 30 minutes. To facilitate use and speed up testing, I have included the intermediate generated DBLP-ACM test set.
+(2) If you encounter the 'KeyError: 'certa'' error, simply restart the console.
 
 
